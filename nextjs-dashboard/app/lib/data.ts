@@ -34,6 +34,7 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
   try {
+    // fetching the last 5 invoices, sorted by data
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
